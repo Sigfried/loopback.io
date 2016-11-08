@@ -64,7 +64,7 @@ LIST_END
   if [ -z "$branch" ]; then
     # No branch means latest release, so fetch from npmjs.org
     echo "fetching $org/$repo from latest npmjs.org release..."
-    curl -s $NPMURL | jq -r '.readme' > $DEST
+    curl -s $NPMURL | jq -r '.readme|rtrimstr("\n")' > $DEST
   else
     echo "fetching $org/$repo/$branch from GitHub's raw content domain..."
     curl -s $GHURL > $DEST
