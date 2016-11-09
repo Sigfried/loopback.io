@@ -66,6 +66,12 @@ LIST_END
     echo "fetching $org/$repo from latest npmjs.org release..."
     curl -s $NPMURL | jq -r '.readme|rtrimstr("\n")' > $DEST
   else
+    # The loopback-example-database repo contains a separate branch for each
+    # actual example project, so we need to add the branch name to the readme
+    # name.
+    if [ "$branch" != "master" ]; then
+      DEST="pages/en/lb2/readmes/$repo-$branch.md"
+    fi
     echo "fetching $org/$repo/$branch from GitHub's raw content domain..."
     curl -s $GHURL > $DEST
   fi
