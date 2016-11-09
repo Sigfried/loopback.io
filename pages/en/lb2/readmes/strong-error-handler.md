@@ -12,7 +12,7 @@ Error handler for use in development (debug) and production environments.
 
 ## Debug Mode
 
-- Full error stack traces and internal details of any object passed as the error will be sent back to the client
+- Full error stack traces and internal details of any object passed passed as the error will be sent back to the client
   in the HTTP responses when an error occurs.
 
 ## Response Format
@@ -41,10 +41,7 @@ var app = express();
 // setup your routes
 // `options` are set to default values. For more info, see `options` below.
 // app.use(errorHandler({ /* options, see below */ }));
-app.use(errorHandler({
-  debug: app.get('env') === 'development',
-  log: true,
-}));
+app.use(errorHandler({debug:true, log:true}));
 
 app.listen(3000);
 ```
@@ -57,8 +54,6 @@ In LoopBack applications, add the following entry to your
   "final:after": {
     "strong-error-handler": {
       "params": {
-         "debug": false,
-         "log": true,
        }
     }
   }

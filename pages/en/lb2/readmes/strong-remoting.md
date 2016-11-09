@@ -80,7 +80,7 @@ Collections that are the result of require('strong-remoting').create() are respo
 
 ### Adapters
 
-Adapters provide the transport-specific mechanisms to make remote objects (and collections thereof) available over their transport. The REST adapter, for example, handles an HTTP server and facilitates mapping your objects to RESTful resources. Other adapters, on the other hand, might provide a less opinionated, RPC-style network interface. Your application code doesn't need to know what adapter it's using.
+Adapters provide the transport-specific mechanisms to make remote objects (and collections thereof) available over their transport. The REST adapter, for example, handles an HTTP server and facilitates mapping your objects to RESTful resources. Other adapters, on the other hand, might provide a less opionated, RPC-style network interface. Your application code doesn't need to know what adapter it's using.
 
 ### Hooks
 
@@ -139,22 +139,6 @@ remotes.before('**', function (ctx, next, method) {
 remotes.after('**', function (ctx, next) {
   ctx.result += '!!!';
   next();
-});
-```
-
-Hooks accept an asynchronous handler function that is called for every request. This handler function signals the completion either by accepting a callback argument or returning a promise.  For example:
-
-```js
-// accepting a callback argument
-remotes.after('dog.prototype.speak', function(ctx, next) {
-  console.log('After speak!');
-  next();
-});
-
-// returning a promise
-remotes.after('dog.prototype.speak', function(ctx) {
-  console.log('After speak!');
-  return Promise.resolve();
 });
 ```
 

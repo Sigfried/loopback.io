@@ -2,14 +2,12 @@
 
 Cloudant DB connector for the StrongLoop Loopback framework.
 
-<div class="gh-only">
-For more information, see the [LoopBack documentation](http://loopback.io/doc/en/lb2/Cloudant-connector).
-</div>
+Please see the full documentation at [docs.strongloop.com](https://docs.strongloop.com/display/public/LB/Cloudant+connector)
 
 ### Key Features
 
 * Uses Cloudant Query (Lucene) to support ad-hoc searching
-* [Loopback Query](http://loopback.io/doc/en/lb2/Querying-data) support for: fields, limit, order, skip and where filters
+* [Loopback Query](https://docs.strongloop.com/display/public/LB/Querying+data) support for: fields, limit, order, skip and where filters
 * Query and filtering is performed on the database for optimal efficiency
 * Use different DB instances per Model definition
 * Support basic Model discovery
@@ -46,8 +44,8 @@ file
 
 ### Configuring the Cloudant datasource
 
-Use the [Data source generator](http://loopback.io/doc/en/lb2/Data-source-generator) to add the Cloudant data source to your
-application. The entry in the applications `/server/datasources.json` will
+Use the [Data source generator](https://docs.strongloop.com/display/public/LB/Data+source+generator) to add the Cloudant data source to your
+application. The entry in the applications /server/datasources.json will
 look something like this:
 
 ```
@@ -76,9 +74,8 @@ modelIndex | String | Specify the model name to document mapping, defaults to 'l
 Per Model configuration is also supported for database selection and to
 specify different Loopback Model to document mappings:
 
-**common/models/<model_name>.json**
-
-```js
+common/models/<model_name>.json
+```
 {
   "name": "User",
   "base": "PersistedModel",
@@ -96,12 +93,12 @@ Model specific configuration settings:
 Property  | Type | Description
 ----------| -----| --------
 database  | String | Database name
-modelIndex | String | Specify the model name to document mapping, defaults to 'loopback\_\_model\_\_name'.
+modelIndex | String | Specify the model name to document mapping, defaults to 'loopback\_\_model\_\_name'. 
 modelSelector | JSON | Use the Cloudant Query selector syntax to associate models to existing data. modelSelector and modelIndex are mutually exclusive. https://docs.cloudant.com/cloudant_query.html#selector-syntax
 
 ### Example Usage
 
-```js
+```
 var DataSource = require ('loopback-datasource-juggler').DataSource,
     Cloudant   = require ('loopback-connector-cloudant');
 
@@ -138,50 +135,3 @@ User.destroyAll (function () {
 
 * Index only Model properties marked with index=true
 * Configurable "view based" or JSON indexes. [More Info>>](https://cloudant.com/blog/mango-json-vs-text-indexes)
-
-### Setup Cloudant Instance
-
-There is no free version of local Cloudant to download, so to develop or test with cloudant connector, users can setup their instance in two ways:
-
-#### Create Cloudant DBaaS account
-
-  - 30 days free trial
-  - Sign up with https://cloudant.com/sign-up/ then you will see your Cloudant dashboard
-
-#### Setup Cloudant on Bluemix
-
-  - Choose bluemix Cloudant if you already have a bluemix account with a better situation than 30-days' free trial.
-
-  - Setup steps:
-
-    - Open bluemix website: https://console.ng.bluemix.net
-    - Login with your account
-    - Click on "CATALOG" in navigation bar
-    - Search with keyword "cloudant" and choose the "Cloudant NOSQLDB" under "Data and Analytics"
-    - Click on the green button "create" in the popup page to create your Cloudant database
-    - Go to "DASHBOARD", you will see your new cloudant DB Icon under "Services"
-    - Click on the Icon, it will direct you to the database page. Check "Service Credentials" on the left to see your credentials.
-    - Check "Manage" then click on button "LAUNCH" to see your Cloudant dashboard
-
-
-### Testing
-
-After having Cloudant instance, you will need three config properties to run the tests: `username`, `password`, `database`
-
-#### Cloudant DBaaS account
-
-  - username: your sign up username
-  - password: your sign up password
-  - database: create your own database for testing
-
-#### Cloudant on Bluemix
-
-  - username: see services credentials
-  - password: see services credentials
-  - database: create your own database for testing
-
-To run the tests:
-
-```
-CLOUDANT_USERNAME=username CLOUDANT_PASSWORD=password CLOUDANT_DATABASE=database npm test
-```

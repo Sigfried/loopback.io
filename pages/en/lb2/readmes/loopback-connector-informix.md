@@ -1,16 +1,13 @@
-# loopback-connector-informix
+#loopback-connector-informix
 
-<p class="gh-only">
-<b>PLEASE CREATE ISSUES AT https://github.com/strongloop/loopback/issues</b>.
-</p>
-
-[IBM® Informix®](https://www-01.ibm.com/software/data/informix/) is the database of choice for robust, enterprise-wide solutions handling high-volume workloads.
-It is optimized to deliver industry-leading performance while lowering costs.  The `loopback-connector-informix` module is the LoopBack connector for Informix.
+[IBM® Informix®]() is the database of choice for robust, enterprise-wide solutions handling high-volume workloads.
+It is optimized to deliver industry-leading performance while lowering costs.  The `loopback-connector-informix
+module is the LoopBack connector for Informix.
 
 The LoopBack Informix connector supports:
 
-- All [create, retrieve, update, and delete operations](http://loopback.io/doc/en/lb2/Creating-updating-and-deleting-data.html).
-- [Queries](http://loopback.io/doc/en/lb2/Querying-data.html) with fields, limit, order, skip and where filters.
+- All [CRUD operations](https://docs.strongloop.com/display/LB/Creating%2C+updating%2C+and+deleting+data).
+- [Queries](https://docs.strongloop.com/display/LB/Querying+data) with fields, limit, order, skip and where filters.
 
 ## Installation
 
@@ -24,10 +21,10 @@ The `--save` option adds the dependency to the application's `package.json` file
 
 ## Configuration
 
-Use the [data source generator](http://loopback.io/doc/en/lb2/Data-source-generator.html) to add the Informix data source to your application.
-The resulting entry in the application's `server/datasources.json` will look something like this:
+Use the [data source generator](https://docs.strongloop.com/display/LB/Data+source+generator) (`slc loopback:datasource`) to add the Informix data source to your application.
+The entry in the application's `server/datasources.json` will look something like this:
 
-```js
+```
 "mydb": {
   "name": "mydb",
   "connector": "informix"
@@ -36,7 +33,7 @@ The resulting entry in the application's `server/datasources.json` will look som
 
 Edit `server/datasources.json` to add other supported properties as required:
 
-```js
+```
 "mydb": {
   "name": "mydb",
   "connector": "informix",
@@ -63,7 +60,7 @@ port           | String  | Informix server TCP port number
 Alternatively, you can create and configure the data source in JavaScript code.
 For example:
 
-```js
+```
 var DataSource = require('loopback-datasource-juggler').DataSource;
 var Informix = require('loopback-connector-informix');
 
